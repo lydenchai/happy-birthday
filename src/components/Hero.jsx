@@ -74,8 +74,8 @@ function FloatingParticles() {
     return symbols.map((p, i) => ({
       ...p,
       left: Math.random() * 100, // full screen width random
-      top: Math.random() * 100,  // full screen height random
-      delay: Math.random() * 2,  // random start delay
+      top: Math.random() * 100, // full screen height random
+      delay: Math.random() * 2, // random start delay
       duration: 3 + Math.random() * 3, // random loop duration
       drift: (Math.random() - 0.5) * 30, // random x sway
     }));

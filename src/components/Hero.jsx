@@ -153,7 +153,7 @@ export default function Hero() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-normal"
             style={{
               fontFamily: "Playfair Display, serif",
               background:
@@ -168,7 +168,6 @@ export default function Hero() {
             My Love
           </motion.div>
         </h1>
-
         <motion.p
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -178,7 +177,6 @@ export default function Hero() {
           Every moment with you is a gift. Thank you for filling my life with
           love, laughter, and endless happiness.
         </motion.p>
-
         <motion.button
           onClick={scrollToNext}
           initial={{ y: 20, opacity: 0, scale: 0.9 }}
@@ -202,7 +200,6 @@ export default function Hero() {
           </motion.span>
         </motion.button>
       </motion.div>
-
       <motion.div
         className="absolute bottom-10 flex flex-col items-center gap-2 text-xs font-semibold tracking-widest text-pink-400 opacity-100"
         animate={{ y: [0, 10, 0] }}

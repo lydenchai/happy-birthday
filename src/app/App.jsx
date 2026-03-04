@@ -37,7 +37,6 @@ export default function App() {
       <Gallery />
       <Reasons />
       <Surprise />
-
       <footer
         className="py-6! text-center text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase relative overflow-hidden"
         style={{

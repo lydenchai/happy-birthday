@@ -61,7 +61,6 @@ export default function Reasons() {
             "radial-gradient(circle at 0% 0%, #fce7f3 0%, transparent 50%), radial-gradient(circle at 100% 100%, #ede9fe 0%, transparent 50%)",
         }}
       />
-
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -82,8 +81,7 @@ export default function Reasons() {
           The list goes on forever, but here are just a few magical reasons.
         </p>
       </motion.div>
-
-      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8! md:gap-12! max-w-6xl mx-auto px-4! md:px-8! pb-40! mb-48">
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8! md:gap-12! max-w-6xl mx-auto px-4! md:px-8! pb-40! mb-48">
         {reasons.map(({ Icon, color, text, sub }, i) => (
           <motion.div
             key={i}
@@ -107,7 +105,6 @@ export default function Reasons() {
                 background: `linear-gradient(135deg, ${color}, transparent)`,
               }}
             />
-
             <motion.div
               className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6! relative z-10 bg-white"
               style={{
@@ -119,7 +116,6 @@ export default function Reasons() {
             >
               <Icon style={{ width: 36, height: 36, color }} />
             </motion.div>
-
             <h3
               className="text-base md:text-xl font-semibold mb-3! relative z-10"
               style={{

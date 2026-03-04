@@ -82,7 +82,6 @@ export default function Surprise() {
             "url('https://www.transparenttextures.com/patterns/stardust.png')",
         }}
       />
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +157,6 @@ export default function Surprise() {
                 >
                   💝
                 </motion.div>
-
                 <h2
                   className="text-3xl md:text-5xl font-bold mb-6! relative z-10"
                   style={{
@@ -171,12 +169,10 @@ export default function Surprise() {
                 >
                   I Love You Forever
                 </h2>
-
                 <p className="text-base md:text-xl text-slate-600 mb-10! font-light leading-relaxed relative z-10">
                   You are my greatest gift, my brightest star, my forever home.
                   Words will never be enough to explain how much you mean to me.
                 </p>
-
                 <motion.button
                   onClick={() => setShow(false)}
                   whileHover={{ scale: 1.05 }}

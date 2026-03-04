@@ -146,7 +146,7 @@ export default function Letter() {
                 "
               </div>
               <p
-                className={`text-base md:text-lg lg:text-xl leading-normal whitespace-pre-line text-slate-700 font-light relative z-10 ${!isDone ? "typing-cursor" : ""}`}
+                className={`text-base md:text-lg lg:text-xl leading-relaxed whitespace-pre-line text-slate-700 font-light relative z-10 ${!isDone ? "typing-cursor" : ""}`}
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {displayed}

@@ -57,7 +57,6 @@ export default function Gallery() {
           opacity: 0.3,
         }}
       />
-
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +78,6 @@ export default function Gallery() {
           forever.
         </p>
       </motion.div>
-
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto px-4! md:px-8! pb-40!">
         {images.map((img, i) => (
           <motion.div
@@ -100,16 +98,13 @@ export default function Gallery() {
               className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-3 bg-pink-200/80 transform -rotate-2 shadow-sm z-20"
               style={{ backdropFilter: "blur(4px)" }}
             />
-
             <div className="overflow-hidden bg-slate-100 flex-1 relative group">
               <img
                 src={img.src}
                 alt={img.label}
                 className="w-full h-72 object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-pink-500/0 group-hover:bg-pink-500/10 transition-colors duration-500" />
             </div>
-
             <div className="pt-6! relative text-center">
               <p
                 className="text-lg md:text-xl text-slate-800"

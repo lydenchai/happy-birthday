@@ -138,7 +138,7 @@ export default function Letter() {
                 💝
               </motion.div>
             </div>
-            <div className="px-4! md:px-8! pt-8! md:pt-16! relative">
+            <div className="px-4! md:px-8! pt-4! md:pt-8! relative">
               <div
                 className="absolute right-10 top-16 text-pink-200 text-9xl leading-none opacity-20 font-serif"
                 style={{ transform: "rotate(10deg)" }}
@@ -156,7 +156,7 @@ export default function Letter() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
-                  className="mt-4 md:mt-8 p-4! md:p-6! border-t border-pink-100 flex items-center justify-between gap-4"
+                  className="mt-4! md:mt-8 p-4! md:p-6! border-t border-pink-100 flex items-center justify-between gap-4"
                 >
                   <p className="text-[10px] md:text-sm font-medium tracking-widest text-pink-400 uppercase">
                     Forever & Always

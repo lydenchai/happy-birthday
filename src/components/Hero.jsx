@@ -132,9 +132,9 @@ export default function Hero() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-          className="w-[90%] sm:w-auto glass-btn mb-8! px-3! md:px-6! py-3! rounded-full text-[9px] sm:text-xs md:text-sm font-bold tracking-[0.1em] sm:tracking-[0.2em] uppercase text-pink-600 flex flex-row items-center justify-center gap-2"
+          className="w-[90%] sm:w-auto glass-btn mb-8! px-3! md:px-6! py-3! rounded-full text-[9px] sm:text-xs md:text-sm font-bold tracking-widest sm:tracking-[0.2em] uppercase text-pink-600 flex flex-row items-center justify-center gap-2"
         >
-          <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse flex-shrink-0" />
+          <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse shrink-0" />
           <span className="text-center leading-snug whitespace-nowrap overflow-hidden text-ellipsis">
             A Special Day For A Special Person
           </span>
@@ -191,7 +191,7 @@ export default function Hero() {
           }}
           className="glass-btn px-6! py-3! md:px-10! md:py-4! rounded-2xl font-bold text-base md:text-lg text-pink-600 flex items-center gap-3 group relative overflow-hidden cursor-pointer"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-linear-to-r from-pink-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <span className="relative z-10">Open My Heart</span>
           <motion.span
             className="relative z-10 text-2xl"
@@ -209,7 +209,7 @@ export default function Hero() {
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
         <span>SCROLL</span>
-        <div className="w-px h-8 bg-gradient-to-b from-pink-400 to-transparent" />
+        <div className="w-px h-8 bg-linear-to-b from-pink-400 to-transparent" />
       </motion.div>
     </section>
   );

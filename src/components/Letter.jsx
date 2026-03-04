@@ -93,7 +93,7 @@ export default function Letter() {
         style={{ perspective: 1000 }}
       >
         <div className="glass-pink rounded-3xl p-1! shadow-2xl overflow-hidden relative group transition-all duration-500 hover:shadow-3xl">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent/0 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-br from-white/40 to-transparent/0 pointer-events-none" />
 
           <div className="bg-white/60 backdrop-blur-2xl rounded-3xl overflow-hidden relative z-10">
             {/* Header pattern */}
@@ -110,7 +110,7 @@ export default function Letter() {
                     "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
                 }}
               />
-              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-pink-300 to-transparent opacity-50" />
+              <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-pink-300 to-transparent opacity-50" />
 
               <div className="flex flex-col items-center">
                 <span className="text-pink-400 tracking-[0.2em] md:tracking-[0.3em] text-[10px] md:text-xs font-bold uppercase mb-4!">
@@ -133,7 +133,7 @@ export default function Letter() {
               <motion.div
                 whileHover={{ rotate: 180, scale: 1.1 }}
                 transition={{ duration: 0.5, type: "spring" }}
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-lg cursor-pointer bg-gradient-to-br from-pink-400 to-purple-500 text-white border-4 border-white"
+                className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-lg cursor-pointer bg-linear-to-br from-pink-400 to-purple-500 text-white border-4 border-white"
               >
                 💝
               </motion.div>
@@ -146,7 +146,7 @@ export default function Letter() {
                 "
               </div>
               <p
-                className={`text-base md:text-lg lg:text-xl leading-[1.5] whitespace-pre-line text-slate-700 font-light relative z-10 ${!isDone ? "typing-cursor" : ""}`}
+                className={`text-base md:text-lg lg:text-xl leading-normal whitespace-pre-line text-slate-700 font-light relative z-10 ${!isDone ? "typing-cursor" : ""}`}
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {displayed}

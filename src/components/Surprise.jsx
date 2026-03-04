@@ -69,7 +69,7 @@ export default function Surprise() {
 
   return (
     <section
-      className="relative py-32! px-4! flex flex-col items-center justify-center min-h-[60vh] overflow-hidden min-h-screen"
+      className="relative py-32! px-4! flex flex-col items-center justify-center overflow-hidden min-h-screen"
       style={{
         background:
           "linear-gradient(135deg, #fdf8fa 0%, #fae8ff 50%, #fdf4ff 100%)",
@@ -107,7 +107,7 @@ export default function Surprise() {
           onClick={() => setShow(true)}
           whileHover={{ scale: 1.05, y: -4 }}
           whileTap={{ scale: 0.95 }}
-          className="relative group overflow-hidden bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8! py-4! md:px-12! md:py-5! rounded-full font-bold text-base md:text-lg tracking-wide shadow-xl shadow-pink-500/30 border border-white/20 cursor-pointer"
+          className="relative group overflow-hidden bg-linear-to-r from-pink-500 to-purple-500 text-white px-8! py-4! md:px-12! md:py-5! rounded-full font-bold text-base md:text-lg tracking-wide shadow-xl shadow-pink-500/30 border border-white/20 cursor-pointer"
         >
           <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           <span className="relative z-10 flex items-center gap-2">

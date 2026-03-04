@@ -9,9 +9,33 @@
   --color-romantic3: #ffc2d1;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+/* Lenis Smooth Scroll Recommended CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
 
 body {
   font-family: "Inter", system-ui, sans-serif;
@@ -61,15 +85,26 @@ body {
 
 .glass-btn:hover {
   background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
-  box-shadow: 
-    0 16px 32px -8px rgba(255, 75, 145, 0.35), 
+  box-shadow:
+    0 16px 32px -8px rgba(255, 75, 145, 0.35),
     0 4px 12px rgba(255, 75, 145, 0.2),
-    inset 0 2px 4px rgba(255,255,255,1);
+    inset 0 2px 4px rgba(255, 255, 255, 1);
   transform: translateY(-2px);
 }
 
 /* ── Typing cursor ────────────────────────────────── */
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+}
+
 .typing-cursor::after {
   content: "|";
   animation: blink 1s step-start infinite;
@@ -91,13 +126,14 @@ body {
 .polaroid {
   background: #fff;
   padding: 12px 12px 48px 12px;
-  box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   position: relative;
   transition: transform 0.4s ease, box-shadow 0.4s ease, z-index 0s;
 }
+
 .polaroid:hover {
   transform: scale(1.08) rotate(0deg) !important;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
   z-index: 50 !important;
 }

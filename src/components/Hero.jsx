@@ -1,38 +1,111 @@
 import { motion } from "framer-motion";
+import { useMemo, useEffect, useState } from "react";
 
 const scrollToNext = () =>
-  document.getElementById("letter-section")?.scrollIntoView({ behavior: "smooth" });
+  document
+    .getElementById("letter-section")
+    ?.scrollIntoView({ behavior: "smooth" });
 
 function Orbs() {
   return (
     <>
-      <div className="orb" style={{ width: "60vw", height: "60vw", top: "-20%", left: "-10%", background: "radial-gradient(circle, #ffd1e1 0%, #f3e8ff 100%)", filter: "blur(120px)" }} />
-      <div className="orb" style={{ width: "50vw", height: "50vw", top: "10%", right: "-10%", background: "radial-gradient(circle, #fce7f3 0%, #fae8ff 100%)", filter: "blur(100px)" }} />
-      <div className="orb" style={{ width: "40vw", height: "40vw", bottom: "-10%", left: "20%", background: "radial-gradient(circle, #ffe4e6 0%, #fee2e2 100%)", filter: "blur(90px)" }} />
+      <div
+        className="orb"
+        style={{
+          width: "100vw",
+          height: "100vw",
+          top: "-20%",
+          left: "-10%",
+          background: "radial-gradient(circle, #ffd1e1 0%, #f3e8ff 100%)",
+          filter: "blur(120px)",
+        }}
+      />
+      <div
+        className="orb"
+        style={{
+          width: "80vw",
+          height: "80vw",
+          top: "10%",
+          right: "-10%",
+          background: "radial-gradient(circle, #fce7f3 0%, #fae8ff 100%)",
+          filter: "blur(100px)",
+        }}
+      />
+      <div
+        className="orb"
+        style={{
+          width: "70vw",
+          height: "70vw",
+          bottom: "-10%",
+          left: "20%",
+          background: "radial-gradient(circle, #ffe4e6 0%, #fee2e2 100%)",
+          filter: "blur(90px)",
+        }}
+      />
     </>
   );
 }
 
 function FloatingParticles() {
-  const particles = [
-    { char: "✨", size: "text-2xl" }, { char: "🌸", size: "text-3xl" }, 
-    { char: "💫", size: "text-xl" }, { char: "💗", size: "text-2xl" },
-    { char: "⭐", size: "text-sm" }, { char: "🌷", size: "text-3xl" },
-    { char: "🤍", size: "text-xl" }, { char: "✨", size: "text-sm" }
-  ];
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const particles = useMemo(() => {
+    const symbols = [
+      { char: "✨", size: "text-2xl" },
+      { char: "🌸", size: "text-3xl" },
+      { char: "💫", size: "text-xl" },
+      { char: "💗", size: "text-2xl" },
+      { char: "⭐", size: "text-base" },
+      { char: "🌷", size: "text-3xl" },
+      { char: "🤍", size: "text-xl" },
+      { char: "✨", size: "text-base" },
+      { char: "🎆", size: "text-base" },
+      { char: "🎂", size: "text-lg" },
+      { char: "🎁", size: "text-lg" },
+      { char: "🎉", size: "text-lg" },
+      { char: "💖", size: "text-lg" },
+      { char: "💝", size: "text-lg" },
+      { char: "🎀", size: "text-lg" },
+    ];
+    return symbols.map((p, i) => ({
+      ...p,
+      left: Math.random() * 100, // full screen width random
+      top: Math.random() * 100,  // full screen height random
+      delay: Math.random() * 2,  // random start delay
+      duration: 3 + Math.random() * 3, // random loop duration
+      drift: (Math.random() - 0.5) * 30, // random x sway
+    }));
+  }, []);
+
+  if (!mounted) return null; // Prevent hydration mismatch
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {particles.map((p, i) => (
         <motion.span
           key={i}
           className={`absolute select-none ${p.size}`}
-          style={{ 
-            left: `${10 + (i * 12 + Math.random() * 5)}%`, 
-            top: `${10 + (i * 10 + Math.random() * 15)}%`, 
-            opacity: 0.4
+          style={{
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            opacity: 0, // Let Framer animate it in
           }}
-          animate={{ y: [0, -30, 0], x: [0, i % 2 === 0 ? 15 : -15, 0], opacity: [0.3, 0.7, 0.3], rotate: [0, i % 2 === 0 ? 15 : -15, 0] }}
-          transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, p.drift, 0],
+            opacity: [0.2, 0.6, 0.2],
+            rotate: [0, p.drift, 0],
+          }}
+          transition={{
+            duration: p.duration,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: p.delay,
+          }}
         >
           {p.char}
         </motion.span>
@@ -49,29 +122,29 @@ export default function Hero() {
     >
       <Orbs />
       <FloatingParticles />
-
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl"
+        className="relative z-10 flex flex-col items-center text-center px-6! max-w-4xl"
       >
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-          className="glass-btn mb-8 px-6 py-2.5 rounded-full text-xs font-bold tracking-[0.2em] uppercase text-pink-600 flex items-center justify-center gap-2"
+          className="w-[90%] sm:w-auto glass-btn mb-8! px-3! md:px-6! py-3! rounded-full text-[9px] sm:text-xs md:text-sm font-bold tracking-[0.1em] sm:tracking-[0.2em] uppercase text-pink-600 flex flex-row items-center justify-center gap-2"
         >
-          <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
-          A Special Day For A Special Person
+          <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse flex-shrink-0" />
+          <span className="text-center leading-snug whitespace-nowrap overflow-hidden text-ellipsis">
+            A Special Day For A Special Person
+          </span>
         </motion.div>
-
-        <h1 className="relative flex flex-col items-center justify-center">
+        <h1 className="relative flex flex-col items-center justify-center mb-4!">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
-            className="text-3xl md:text-5xl text-pink-400 mb-2 font-medium"
+            className="text-2xl md:text-4xl lg:text-5xl text-pink-400 mb-2 font-medium"
             style={{ fontFamily: "'Great Vibes', cursive" }}
           >
             To my beautiful soulmate
@@ -80,16 +153,19 @@ export default function Hero() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 leading-[1.1] tracking-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight"
             style={{
               fontFamily: "Playfair Display, serif",
-              background: "linear-gradient(135deg, #be185d 0%, #ec4899 50%, #9333ea 100%)",
+              background:
+                "linear-gradient(135deg, #be185d 0%, #ec4899 50%, #9333ea 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              filter: "drop-shadow(0 10px 20px rgba(236,72,153,0.15))"
+              filter: "drop-shadow(0 10px 20px rgba(236,72,153,0.15))",
             }}
           >
-            Happy Birthday,<br />My Love
+            Happy Birthday,
+            <br />
+            My Love
           </motion.div>
         </h1>
 
@@ -97,22 +173,27 @@ export default function Hero() {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="text-lg md:text-2xl mb-12 leading-relaxed max-w-2xl text-slate-700 font-light"
+          className="text-base md:text-xl lg:text-2xl mx-auto mb-12! leading-relaxed max-w-2xl text-slate-700 font-light"
         >
           Every moment with you is a gift. Thank you for filling my life with
-          love, laughter, and endless happiness. 
+          love, laughter, and endless happiness.
         </motion.p>
 
         <motion.button
           onClick={scrollToNext}
           initial={{ y: 20, opacity: 0, scale: 0.9 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
-          transition={{ delay: 1.1, type: "spring", stiffness: 200, damping: 15 }}
-          className="glass-btn px-10 py-4 rounded-2xl font-bold text-lg text-pink-600 flex items-center gap-3 group relative overflow-hidden cursor-pointer"
+          transition={{
+            delay: 1.1,
+            type: "spring",
+            stiffness: 200,
+            damping: 15,
+          }}
+          className="glass-btn px-6! py-3! md:px-10! md:py-4! rounded-2xl font-bold text-base md:text-lg text-pink-600 flex items-center gap-3 group relative overflow-hidden cursor-pointer"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-pink-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <span className="relative z-10">Open My Heart</span>
-          <motion.span 
+          <motion.span
             className="relative z-10 text-2xl"
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 1.5, repeat: Infinity }}
@@ -123,7 +204,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-10 flex flex-col items-center gap-2 text-xs font-semibold tracking-widest text-pink-400 opacity-70"
+        className="absolute bottom-10 flex flex-col items-center gap-2 text-xs font-semibold tracking-widest text-pink-400 opacity-100"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >

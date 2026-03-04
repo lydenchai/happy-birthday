@@ -27,15 +27,15 @@ export default function Reasons() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 text-center mb-20 mt-24"
+        className="relative z-10 flex flex-col items-center justify-center text-center mb-20 mt-24 px-4 w-full"
       >
         <span className="text-pink-400 tracking-[0.4em] text-xs font-bold uppercase mb-4 block">
           From My Heart
         </span>
-        <h2 className="text-5xl md:text-7xl mb-4" style={{ fontFamily: "'Great Vibes', cursive", color: "#9d174d" }}>
+        <h2 className="text-5xl md:text-7xl mb-4 w-full" style={{ fontFamily: "'Great Vibes', cursive", color: "#9d174d" }}>
           Reasons I Love You
         </h2>
-        <p className="mt-4 text-lg max-w-md mx-auto text-slate-500 font-light">
+        <p className="mt-4 text-lg max-w-md mx-auto text-slate-500 font-light text-center">
           The list goes on forever, but here are just a few magical reasons.
         </p>
       </motion.div>
